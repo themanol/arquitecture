@@ -1,8 +1,20 @@
 package com.themanol.pokecards.cards;
 
+import com.themanol.pokesdk.models.PokeCard;
+
+import java.util.List;
+
 /**
  * Created by manuelgarcia on 13/11/16.
  */
 
-public class CardsInteractor {
+public interface CardsInteractor {
+
+	void getCards(OnFinishedListener listener);
+
+	interface OnFinishedListener {
+		void onSuccess(List<PokeCard> pokeCards);
+
+		void onError();
+	}
 }

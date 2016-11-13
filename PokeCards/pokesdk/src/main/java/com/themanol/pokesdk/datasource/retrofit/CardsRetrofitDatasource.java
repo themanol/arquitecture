@@ -2,6 +2,7 @@ package com.themanol.pokesdk.datasource.retrofit;
 
 import com.themanol.pokesdk.datasource.CardsDataSource;
 import com.themanol.pokesdk.models.PokeCard;
+import com.themanol.pokesdk.models.PokeCards;
 
 import java.io.IOException;
 import java.util.List;
@@ -29,12 +30,12 @@ public class CardsRetrofitDatasource implements CardsDataSource {
 	@Override
 	public List<PokeCard> getPokeCards() {
 		CardsService cardsService = ServiceGenerator.createService(CardsService.class);
-		Call<List<PokeCard>> call = cardsService.getCards();
+		Call<PokeCards> call = cardsService.getCards();
 		Response response;
 		try {
 			response = call.execute();
 			if (response.isSuccessful()) {
-				return (List<PokeCard>)response.body();
+				return ((PokeCards)response.body()).getCards();
 			}
 		} catch (IOException e) {
 		}

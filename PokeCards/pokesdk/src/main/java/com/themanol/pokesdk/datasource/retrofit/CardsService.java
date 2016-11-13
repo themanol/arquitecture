@@ -1,6 +1,7 @@
 package com.themanol.pokesdk.datasource.retrofit;
 
 import com.themanol.pokesdk.models.PokeCard;
+import com.themanol.pokesdk.models.PokeCards;
 
 import java.util.List;
 
@@ -14,9 +15,9 @@ import retrofit2.http.Path;
 
 public interface CardsService {
 
-	@GET("/cards")
-	Call<List<PokeCard>> getCards();
+	@GET("cards")
+	Call<PokeCards> getCards();
 
-	@GET("/cards/{id}")
+	@GET("cards/{id}")
 	Call<PokeCard> getCard(@Path("id") String id);
 }
