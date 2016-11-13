@@ -4,6 +4,8 @@ import com.themanol.pokecards.Injection;
 import com.themanol.pokecards.R;
 import com.themanol.pokecards.cards.adapter.CardsAdapter;
 import com.themanol.pokecards.databinding.CardsActivityBinding;
+import com.themanol.pokecards.databinding.CardsItemBinding;
+import com.themanol.pokecards.details.CardDetailsActivity;
 import com.themanol.pokesdk.datasource.CardsRepository;
 import com.themanol.pokesdk.models.PokeCard;
 
@@ -51,11 +53,6 @@ public class CardsActivity extends AppCompatActivity implements CardsContract.Vi
 	}
 
 	@Override
-	public void goToCardDetails(PokeCard card) {
-
-	}
-
-	@Override
 	public void showError() {
 		Log.d("TheManol", "Get cards error");
 	}
@@ -66,7 +63,7 @@ public class CardsActivity extends AppCompatActivity implements CardsContract.Vi
 	}
 
 	@Override
-	public void onCardClick(PokeCard card) {
-		Log.d("TheManol", "Card clicked " + card.getName());
+	public void onCardClick(PokeCard card, CardsItemBinding binding) {
+		CardDetailsActivity.startActivity(card.getId(), this, binding.image, binding.name);
 	}
 }

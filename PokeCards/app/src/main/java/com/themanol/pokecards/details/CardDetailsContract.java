@@ -1,7 +1,8 @@
-package com.themanol.pokecards.cards;
+package com.themanol.pokecards.details;
 
 import com.themanol.pokecards.BasePresenter;
 import com.themanol.pokecards.BaseView;
+import com.themanol.pokecards.details.viewmodels.CardDetailsViewModel;
 import com.themanol.pokesdk.models.PokeCard;
 
 import java.util.List;
@@ -10,13 +11,11 @@ import java.util.List;
  * Created by manuelgarcia on 13/11/16.
  */
 
-interface CardsContract {
+interface CardDetailsContract {
 
 	interface View extends BaseView<Presenter> {
 
-		void setLoadingIndicator(boolean active);
-
-		void showCards(List<PokeCard> cards);
+		void showCard(CardDetailsViewModel card);
 
 		void showError();
 	}

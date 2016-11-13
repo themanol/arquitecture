@@ -2,6 +2,8 @@ package com.themanol.pokecards.cards;
 
 import com.themanol.pokesdk.models.PokeCard;
 
+import android.support.annotation.NonNull;
+
 import java.util.List;
 
 /**
@@ -10,7 +12,7 @@ import java.util.List;
 
 public interface CardsInteractor {
 
-	void getCards(OnFinishedListener listener);
+	void getCards(@NonNull OnFinishedListener listener);
 
 	interface OnFinishedListener {
 		void onSuccess(List<PokeCard> pokeCards);

@@ -59,7 +59,7 @@ public class CardsAdapter extends RecyclerView.Adapter<CardsAdapter.CardsViewHol
 			binding.getRoot().setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View view) {
-					mListener.onCardClick(mCard);
+					mListener.onCardClick(mCard, mBinding);
 				}
 			});
 		}
@@ -78,6 +78,6 @@ public class CardsAdapter extends RecyclerView.Adapter<CardsAdapter.CardsViewHol
 	}
 
 	public interface OnCardClickListener {
-		void onCardClick(PokeCard card);
+		void onCardClick(PokeCard card, CardsItemBinding view);
 	}
 }
