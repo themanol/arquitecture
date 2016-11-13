@@ -18,9 +18,9 @@ public class CardsRepository implements CardsDataSource {
 	private CardsDataSource dataSource;
 	private final Map<String, PokeCard> cache;
 
-	public static CardsRepository getInstance() {
+	public static CardsRepository getInstance(CardsDataSource dataSource) {
 		if (sInstance == null) {
-			sInstance = new CardsRepository(CardsRetrofitDatasource.getInstance());
+			sInstance = new CardsRepository(dataSource);
 		}
 		return sInstance;
 	}

@@ -1,6 +1,5 @@
 package com.themanol.pokecards.cards;
 
-import com.themanol.pokesdk.datasource.CardsDataSource;
 import com.themanol.pokesdk.models.PokeCard;
 
 import android.support.annotation.NonNull;

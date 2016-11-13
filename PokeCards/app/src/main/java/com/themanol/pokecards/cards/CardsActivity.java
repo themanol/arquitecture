@@ -1,11 +1,12 @@
 package com.themanol.pokecards.cards;
 
+import com.themanol.pokecards.Injection;
 import com.themanol.pokecards.R;
 import com.themanol.pokesdk.datasource.CardsRepository;
 import com.themanol.pokesdk.models.PokeCard;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import java.util.List;
@@ -18,7 +19,7 @@ public class CardsActivity extends AppCompatActivity implements CardsContract.Vi
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.cards_activity);
-		new CardsPresenter(this, new CardsInteractorImpl(CardsRepository.getInstance()));
+		new CardsPresenter(this, Injection.provideCardsInteractor());
 		initViews();
 		mPresenter.start();
 	}

@@ -10,8 +10,6 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Response;
 
-import static android.R.attr.id;
-
 /**
  * Created by manuelgarcia on 13/11/16.
  */

@@ -1,13 +1,11 @@
 package com.themanol.pokecards.cards;
 
 import com.themanol.pokesdk.datasource.CardsDataSource;
-import com.themanol.pokesdk.datasource.CardsRepository;
 import com.themanol.pokesdk.models.PokeCard;
 
 import android.os.AsyncTask;
 
 import java.util.List;
-import java.util.concurrent.ThreadPoolExecutor;
 
 /**
  * Created by manuelgarcia on 13/11/16.
