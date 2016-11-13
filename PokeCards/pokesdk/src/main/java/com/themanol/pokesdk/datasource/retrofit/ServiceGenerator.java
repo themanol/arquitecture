@@ -19,7 +19,7 @@ class ServiceGenerator {
 
 	private static OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
 
-	private static Gson gson = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES).create();
+	private static Gson gson = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.IDENTITY).create();
 
 	private static Retrofit.Builder builder =
 			new Retrofit.Builder()

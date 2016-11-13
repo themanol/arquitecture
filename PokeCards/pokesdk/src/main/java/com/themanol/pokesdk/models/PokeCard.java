@@ -35,4 +35,17 @@ public class PokeCard {
 	public String getName() {
 		return name;
 	}
+
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+
+	public List<String> getTypes() {
+		return types;
+	}
+
+	public String getSuperType() {
+		return supertype;
+	}
 }

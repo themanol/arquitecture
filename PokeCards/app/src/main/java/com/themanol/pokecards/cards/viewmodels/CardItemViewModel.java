@@ -1,0 +1,86 @@
+package com.themanol.pokecards.cards.viewmodels;
+
+import com.themanol.pokecards.BR;
+
+import android.databinding.BaseObservable;
+import android.databinding.Bindable;
+import android.support.annotation.StringDef;
+
+import java.lang.annotation.Retention;
+import java.util.List;
+
+import static java.lang.annotation.RetentionPolicy.SOURCE;
+
+/**
+ * Created by manuelgarcia on 13/11/16.
+ */
+
+public class CardItemViewModel extends BaseObservable {
+
+	@Retention(SOURCE)
+	@StringDef({
+			POKEMON,
+			TRAINER,
+			ENERGY
+	})
+	public @interface SuperType {
+	}
+	static final String POKEMON = "Pokémon";
+	static final String TRAINER = "Trainer";
+	static final String ENERGY = "Energy";
+
+	private String mImageUrl;
+	private String mName;
+	private List<String> mTypes;
+	private @SuperType String mSuperType;
+
+	public void setName(String name) {
+		this.mName = name;
+		notifyPropertyChanged(BR.viewModel);
+	}
+
+	public void setImageUrl(String url) {
+		mImageUrl = url;
+		notifyPropertyChanged(BR.viewModel);
+	}
+
+	public void setTypes(List<String> types) {
+		this.mTypes = types;
+		notifyPropertyChanged(BR.viewModel);
+	}
+
+	public void setSuperType(@SuperType String superType) {
+		mSuperType = superType;
+		notifyPropertyChanged(BR.viewModel);
+	}
+
+	@Bindable
+	public String getType() {
+
+		if (mSuperType.equalsIgnoreCase(POKEMON)) {
+
+			if (mTypes == null || mTypes.size() == 0) {
+				return POKEMON;
+			}
+			StringBuilder typesBuilder = new StringBuilder(POKEMON);
+			typesBuilder.append(": ");
+			for (String type : mTypes) {
+				typesBuilder.append(type);
+				typesBuilder.append(" | ");
+			}
+			return typesBuilder.substring(0, typesBuilder.length() - 3);
+		} else {
+			return mSuperType;
+		}
+	}
+
+	@Bindable
+	public String getImageUrl() {
+		return mImageUrl;
+	}
+
+	@Bindable
+	public String getName() {
+		return mName;
+	}
+}

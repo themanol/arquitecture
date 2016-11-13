@@ -10,12 +10,12 @@ import java.util.List;
  * Created by manuelgarcia on 13/11/16.
  */
 
-public class CardsPresenter implements CardsContract.Presenter, CardsInteractor.OnFinishedListener {
+class CardsPresenter implements CardsContract.Presenter, CardsInteractor.OnFinishedListener {
 
 	private CardsContract.View mView;
 	private CardsInteractor mInteractor;
 
-	public CardsPresenter(@NonNull CardsContract.View view, @NonNull CardsInteractor interactor) {
+	CardsPresenter(@NonNull CardsContract.View view, @NonNull CardsInteractor interactor) {
 		mView = view;
 		mInteractor = interactor;
 		mView.setPresenter(this);
@@ -35,6 +35,7 @@ public class CardsPresenter implements CardsContract.Presenter, CardsInteractor.
 
 	@Override
 	public void onError() {
+		mView.setLoadingIndicator(false);
 		mView.showError();
 	}
 }
