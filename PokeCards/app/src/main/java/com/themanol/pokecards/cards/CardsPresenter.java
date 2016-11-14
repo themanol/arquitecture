@@ -1,5 +1,6 @@
 package com.themanol.pokecards.cards;
 
+import com.themanol.pokecards.cards.viewmodels.CardsViewModel;
 import com.themanol.pokesdk.models.PokeCard;
 
 import android.support.annotation.NonNull;
@@ -29,8 +30,9 @@ class CardsPresenter implements CardsContract.Presenter, CardsInteractor.OnFinis
 
 	@Override
 	public void onSuccess(List<PokeCard> pokeCards) {
+		CardsViewModel cardsViewModel = new CardsViewModel(pokeCards);
 		mView.setLoadingIndicator(false);
-		mView.showCards(pokeCards);
+		mView.showCards(cardsViewModel);
 	}
 
 	@Override

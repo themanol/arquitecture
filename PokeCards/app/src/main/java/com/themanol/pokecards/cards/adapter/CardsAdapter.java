@@ -2,8 +2,8 @@ package com.themanol.pokecards.cards.adapter;
 
 import com.themanol.pokecards.R;
 import com.themanol.pokecards.cards.viewmodels.CardItemViewModel;
+import com.themanol.pokecards.cards.viewmodels.CardsViewModel;
 import com.themanol.pokecards.databinding.CardsItemBinding;
-import com.themanol.pokesdk.models.PokeCard;
 
 import android.databinding.DataBindingUtil;
 import android.support.annotation.NonNull;
@@ -12,20 +12,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.List;
-
 /**
  * Created by manuelgarcia on 13/11/16.
  */
 
 public class CardsAdapter extends RecyclerView.Adapter<CardsAdapter.CardsViewHolder> {
 
-	private List<PokeCard> mCards;
+	private CardsViewModel mViewModel;
 	private OnCardClickListener mListener;
 
-	public CardsAdapter(@NonNull List<PokeCard> cards, @NonNull OnCardClickListener cardClickListener) {
-		mCards = cards;
+	public CardsAdapter(@NonNull CardsViewModel cardsViewModel, @NonNull OnCardClickListener cardClickListener) {
 		mListener = cardClickListener;
+		mViewModel = cardsViewModel;
 	}
 
 	@Override
@@ -40,17 +38,17 @@ public class CardsAdapter extends RecyclerView.Adapter<CardsAdapter.CardsViewHol
 
 	@Override
 	public void onBindViewHolder(CardsViewHolder holder, int position) {
-		holder.bindCardItem(mCards.get(position));
+		holder.bindCardItem(mViewModel.getItemViewModel(position));
 	}
 
 	@Override
 	public int getItemCount() {
-		return mCards.size();
+		return mViewModel.getCount();
 	}
 
 	static class CardsViewHolder extends RecyclerView.ViewHolder {
 
-		private PokeCard mCard;
+		private CardItemViewModel mItemViewModel;
 		private CardsItemBinding mBinding;
 
 		CardsViewHolder(CardsItemBinding binding, final OnCardClickListener mListener) {
@@ -59,25 +57,19 @@ public class CardsAdapter extends RecyclerView.Adapter<CardsAdapter.CardsViewHol
 			binding.getRoot().setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View view) {
-					mListener.onCardClick(mCard, mBinding);
+					mListener.onCardClick(mItemViewModel.getCardId(), mBinding);
 				}
 			});
 		}
 
-		@SuppressWarnings("WrongConstant")
-		void bindCardItem(PokeCard card) {
-			CardItemViewModel viewModel = new CardItemViewModel();
+		void bindCardItem(CardItemViewModel viewModel) {
+			mItemViewModel = viewModel;
 			mBinding.setViewModel(viewModel);
-			mCard = card;
-			viewModel.setImageUrl(card.getImageUrl());
-			viewModel.setName(card.getName());
-			viewModel.setTypes(card.getTypes());
-			viewModel.setSuperType(card.getSuperType());
 			mBinding.executePendingBindings();
 		}
 	}
 
 	public interface OnCardClickListener {
-		void onCardClick(PokeCard card, CardsItemBinding view);
+		void onCardClick(String cardId, CardsItemBinding view);
 	}
 }

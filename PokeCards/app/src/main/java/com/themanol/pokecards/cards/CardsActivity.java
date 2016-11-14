@@ -3,6 +3,7 @@ package com.themanol.pokecards.cards;
 import com.themanol.pokecards.Injection;
 import com.themanol.pokecards.R;
 import com.themanol.pokecards.cards.adapter.CardsAdapter;
+import com.themanol.pokecards.cards.viewmodels.CardsViewModel;
 import com.themanol.pokecards.databinding.CardsActivityBinding;
 import com.themanol.pokecards.databinding.CardsItemBinding;
 import com.themanol.pokecards.details.CardDetailsActivity;
@@ -48,7 +49,7 @@ public class CardsActivity extends AppCompatActivity implements CardsContract.Vi
 	}
 
 	@Override
-	public void showCards(List<PokeCard> cards) {
+	public void showCards(CardsViewModel cards) {
 		mBinding.recyclerView.setAdapter(new CardsAdapter(cards, this));
 	}
 
@@ -63,7 +64,7 @@ public class CardsActivity extends AppCompatActivity implements CardsContract.Vi
 	}
 
 	@Override
-	public void onCardClick(PokeCard card, CardsItemBinding binding) {
-		CardDetailsActivity.startActivity(card.getId(), this, binding.image, binding.name);
+	public void onCardClick(String cardId, CardsItemBinding binding) {
+		CardDetailsActivity.startActivity(cardId, this, binding.image, binding.name);
 	}
 }

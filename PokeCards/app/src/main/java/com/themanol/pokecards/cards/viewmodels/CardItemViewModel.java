@@ -1,6 +1,7 @@
 package com.themanol.pokecards.cards.viewmodels;
 
 import com.themanol.pokecards.BR;
+import com.themanol.pokesdk.models.PokeCard;
 
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
@@ -32,6 +33,7 @@ public class CardItemViewModel extends BaseObservable {
 	private String mImageUrl;
 	private String mName;
 	private List<String> mTypes;
+	private String mCardId;
 	private @SuperType String mSuperType;
 
 	public void setName(String name) {
@@ -72,6 +74,14 @@ public class CardItemViewModel extends BaseObservable {
 		} else {
 			return mSuperType;
 		}
+	}
+
+	public String getCardId() {
+		return mCardId;
+	}
+
+	public void setCardId(String cardId) {
+		this.mCardId = cardId;
 	}
 
 	@Bindable

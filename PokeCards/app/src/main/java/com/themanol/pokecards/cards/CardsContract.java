@@ -2,6 +2,7 @@ package com.themanol.pokecards.cards;
 
 import com.themanol.pokecards.BasePresenter;
 import com.themanol.pokecards.BaseView;
+import com.themanol.pokecards.cards.viewmodels.CardsViewModel;
 import com.themanol.pokesdk.models.PokeCard;
 
 import java.util.List;
@@ -16,7 +17,7 @@ interface CardsContract {
 
 		void setLoadingIndicator(boolean active);
 
-		void showCards(List<PokeCard> cards);
+		void showCards(CardsViewModel cardsViewModel);
 
 		void showError();
 	}
