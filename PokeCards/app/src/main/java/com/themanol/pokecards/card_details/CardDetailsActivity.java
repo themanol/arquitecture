@@ -1,9 +1,9 @@
-package com.themanol.pokecards.details;
+package com.themanol.pokecards.card_details;
 
 import com.themanol.pokecards.Injection;
 import com.themanol.pokecards.R;
 import com.themanol.pokecards.databinding.CardDetailsActivityBinding;
-import com.themanol.pokecards.details.viewmodels.CardDetailsViewModel;
+import com.themanol.pokecards.card_details.viewmodels.CardDetailsViewModel;
 
 import android.app.Activity;
 import android.content.Intent;

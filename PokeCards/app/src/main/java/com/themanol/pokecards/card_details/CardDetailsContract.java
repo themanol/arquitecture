@@ -1,11 +1,8 @@
-package com.themanol.pokecards.details;
+package com.themanol.pokecards.card_details;
 
 import com.themanol.pokecards.BasePresenter;
 import com.themanol.pokecards.BaseView;
-import com.themanol.pokecards.details.viewmodels.CardDetailsViewModel;
-import com.themanol.pokesdk.models.PokeCard;
-
-import java.util.List;
+import com.themanol.pokecards.card_details.viewmodels.CardDetailsViewModel;
 
 /**
  * Created by manuelgarcia on 13/11/16.

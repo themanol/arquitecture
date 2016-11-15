@@ -1,6 +1,5 @@
-package com.themanol.pokecards.details;
+package com.themanol.pokecards.card_details;
 
-import com.themanol.pokesdk.datasource.CardsDataSource;
 import com.themanol.pokesdk.datasource.CardsRepository;
 import com.themanol.pokesdk.models.PokeCard;
 
