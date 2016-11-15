@@ -6,7 +6,7 @@ import com.themanol.pokecards.cards.adapter.CardsAdapter;
 import com.themanol.pokecards.cards.viewmodels.CardsViewModel;
 import com.themanol.pokecards.databinding.CardsActivityBinding;
 import com.themanol.pokecards.databinding.CardsItemBinding;
-import com.themanol.pokecards.details.CardDetailsActivity;
+import com.themanol.pokecards.card_details.CardDetailsActivity;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;

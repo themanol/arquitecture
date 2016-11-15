@@ -1,11 +1,8 @@
-package com.themanol.pokecards.details;
+package com.themanol.pokecards.card_details;
 
-import com.themanol.pokecards.cards.CardsInteractor;
 import com.themanol.pokesdk.models.PokeCard;
 
 import android.support.annotation.NonNull;
-
-import java.util.List;
 
 /**
  * Created by manuelgarcia on 13/11/16.

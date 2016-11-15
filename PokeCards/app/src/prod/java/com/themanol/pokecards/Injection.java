@@ -2,8 +2,8 @@ package com.themanol.pokecards;
 
 import com.themanol.pokecards.cards.CardsInteractor;
 import com.themanol.pokecards.cards.CardsInteractorImpl;
-import com.themanol.pokecards.details.CardDetailsInteractor;
-import com.themanol.pokecards.details.CardDetailsInteractorImpl;
+import com.themanol.pokecards.card_details.CardDetailsInteractor;
+import com.themanol.pokecards.card_details.CardDetailsInteractorImpl;
 import com.themanol.pokesdk.datasource.CardsRepository;
 import com.themanol.pokesdk.datasource.CardsRepositoryImpl;
 import com.themanol.pokesdk.datasource.retrofit.CardsRetrofitDatasource;

@@ -1,4 +1,4 @@
-package com.themanol.pokecards.details.viewmodels;
+package com.themanol.pokecards.card_details.viewmodels;
 
 import com.themanol.pokecards.BR;
 

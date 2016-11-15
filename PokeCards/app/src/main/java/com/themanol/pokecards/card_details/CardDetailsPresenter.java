@@ -1,6 +1,6 @@
-package com.themanol.pokecards.details;
+package com.themanol.pokecards.card_details;
 
-import com.themanol.pokecards.details.viewmodels.CardDetailsViewModel;
+import com.themanol.pokecards.card_details.viewmodels.CardDetailsViewModel;
 import com.themanol.pokesdk.models.PokeCard;
 
 import android.support.annotation.NonNull;
