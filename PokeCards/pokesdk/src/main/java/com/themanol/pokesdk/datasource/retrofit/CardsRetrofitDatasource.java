@@ -14,16 +14,9 @@ import retrofit2.Response;
  * Created by manuelgarcia on 13/11/16.
  */
 
-public class CardsRetrofitDatasource implements CardsDataSource {
+public enum CardsRetrofitDatasource implements CardsDataSource {
 
-	private static CardsRetrofitDatasource sInstance;
-
-	public static CardsDataSource getInstance() {
-		if (sInstance == null) {
-			sInstance = new CardsRetrofitDatasource();
-		}
-		return sInstance;
-	}
+	INSTANCE;
 
 	@Override
 	public List<PokeCard> getPokeCards() {
