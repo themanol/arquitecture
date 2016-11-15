@@ -7,17 +7,12 @@ import com.themanol.pokecards.cards.viewmodels.CardsViewModel;
 import com.themanol.pokecards.databinding.CardsActivityBinding;
 import com.themanol.pokecards.databinding.CardsItemBinding;
 import com.themanol.pokecards.details.CardDetailsActivity;
-import com.themanol.pokesdk.datasource.CardsRepository;
-import com.themanol.pokesdk.models.PokeCard;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.util.Log;
-import android.view.View;
-
-import java.util.List;
 
 public class CardsActivity extends AppCompatActivity implements CardsContract.View, CardsAdapter.OnCardClickListener {
 

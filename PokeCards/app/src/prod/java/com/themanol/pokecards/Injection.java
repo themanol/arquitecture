@@ -5,6 +5,7 @@ import com.themanol.pokecards.cards.CardsInteractorImpl;
 import com.themanol.pokecards.details.CardDetailsInteractor;
 import com.themanol.pokecards.details.CardDetailsInteractorImpl;
 import com.themanol.pokesdk.datasource.CardsRepository;
+import com.themanol.pokesdk.datasource.CardsRepositoryImpl;
 import com.themanol.pokesdk.datasource.retrofit.CardsRetrofitDatasource;
 
 /**
@@ -14,7 +15,7 @@ import com.themanol.pokesdk.datasource.retrofit.CardsRetrofitDatasource;
 public class Injection {
 
 	private static CardsRepository provideCardsRepository() {
-		return CardsRepository.getInstance(CardsRetrofitDatasource.getInstance());
+		return CardsRepositoryImpl.getInstance(CardsRetrofitDatasource.getInstance());
 	}
 
 	public static CardsInteractor provideCardsInteractor() {

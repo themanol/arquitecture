@@ -1,7 +1,5 @@
 package com.themanol.pokecards.details;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.themanol.pokecards.Injection;
 import com.themanol.pokecards.R;
 import com.themanol.pokecards.databinding.CardDetailsActivityBinding;

@@ -1,6 +1,7 @@
 package com.themanol.pokecards.details;
 
 import com.themanol.pokesdk.datasource.CardsDataSource;
+import com.themanol.pokesdk.datasource.CardsRepository;
 import com.themanol.pokesdk.models.PokeCard;
 
 import android.os.AsyncTask;
@@ -12,9 +13,9 @@ import android.support.annotation.NonNull;
 
 public class CardDetailsInteractorImpl implements CardDetailsInteractor {
 
-	private CardsDataSource mRepository;
+	private CardsRepository mRepository;
 
-	public CardDetailsInteractorImpl(CardsDataSource repository) {
+	public CardDetailsInteractorImpl(CardsRepository repository) {
 		mRepository = repository;
 	}
 
@@ -27,11 +28,11 @@ public class CardDetailsInteractorImpl implements CardDetailsInteractor {
 	private static class CardDetailsAsyncTasks extends AsyncTask<Void, Void, PokeCard> {
 
 		private String mId;
-		private CardsDataSource mRepository;
+		private CardsRepository mRepository;
 		private CardDetailsInteractor.OnFinishedListener mListener;
 
 
-		CardDetailsAsyncTasks(String id, CardsDataSource repository, CardDetailsInteractor.OnFinishedListener listener) {
+		CardDetailsAsyncTasks(String id, CardsRepository repository, CardDetailsInteractor.OnFinishedListener listener) {
 			mRepository = repository;
 			mListener = listener;
 			mId = id;
