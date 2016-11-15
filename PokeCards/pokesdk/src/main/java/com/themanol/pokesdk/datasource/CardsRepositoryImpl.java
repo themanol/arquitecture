@@ -10,7 +10,7 @@ import java.util.Map;
  * Created by manuelgarcia on 13/11/16.
  */
 
-public class CardsRepositoryImpl implements CardsDataSource {
+public class CardsRepositoryImpl implements CardsRepository {
 
 	private static CardsRepositoryImpl sInstance;
 
