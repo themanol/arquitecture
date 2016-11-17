@@ -2,6 +2,7 @@ package com.themanol.pokesdk.datasource;
 
 import com.themanol.pokesdk.models.PokeCard;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -31,12 +32,16 @@ public class CardsRepositoryImpl implements CardsRepository {
 
 	@Override
 	public List<PokeCard> getPokeCards() {
-		List<PokeCard> cards = dataSource.getPokeCards();
-		if (cards != null) {
-			for (PokeCard card : cards) {
-				cache.put(card.getId(), card);
-			}
+		List<PokeCard> cards;
+
+		if (!cache.isEmpty()) {
+			cards = new ArrayList<>(cache.values());
+		} else {
+			cards = dataSource.getPokeCards();
+
+			cacheResults(cards);
 		}
+
 		return cards;
 	}
 
@@ -50,5 +55,13 @@ public class CardsRepositoryImpl implements CardsRepository {
 			cache.put(id, card);
 		}
 		return card;
+	}
+
+	private void cacheResults(List<PokeCard> cards) {
+		if (cards != null) {
+			for (PokeCard card : cards) {
+				cache.put(card.getId(), card);
+			}
+		}
 	}
 }
