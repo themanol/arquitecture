@@ -15,7 +15,7 @@ import com.themanol.pokesdk.datasource.retrofit.CardsRetrofitDatasource;
 public class Injection {
 
 	private static CardsRepository provideCardsRepository() {
-		return CardsRepositoryImpl.getInstance(CardsRetrofitDatasource.getInstance());
+		return CardsRepositoryImpl.getInstance(CardsRetrofitDatasource.INSTANCE);
 	}
 
 	public static CardsInteractor provideCardsInteractor() {
