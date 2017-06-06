@@ -1,5 +1,7 @@
 package com.themanol.pokesdk.datasource;
 
+import android.arch.lifecycle.LiveData;
+
 import com.themanol.pokesdk.models.PokeCard;
 
 import java.io.IOException;
@@ -11,7 +13,7 @@ import java.util.List;
 
 public interface CardsDataSource {
 
-	List<PokeCard> getPokeCards();
+	LiveData<List<PokeCard>> getPokeCards();
 
-	PokeCard getPokeCard(String id);
+	LiveData<PokeCard> getPokeCard(String id);
 }

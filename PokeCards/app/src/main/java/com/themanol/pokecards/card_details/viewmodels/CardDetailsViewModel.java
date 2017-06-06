@@ -1,36 +1,55 @@
 package com.themanol.pokecards.card_details.viewmodels;
 
 import com.themanol.pokecards.BR;
+import com.themanol.pokecards.Injection;
+import com.themanol.pokecards.card_details.displays.PokeCardDetailsDisplay;
+import com.themanol.pokecards.utils.NullLiveData;
+import com.themanol.pokesdk.datasource.CardsRepository;
+import com.themanol.pokesdk.models.PokeCard;
 
+import android.arch.core.util.Function;
+import android.arch.lifecycle.LiveData;
+import android.arch.lifecycle.MutableLiveData;
+import android.arch.lifecycle.Transformations;
+import android.arch.lifecycle.ViewModel;
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
+
+import java.util.List;
 
 /**
  * Created by manuelgarcia on 13/11/16.
  */
 
-public class CardDetailsViewModel extends BaseObservable {
+public class CardDetailsViewModel extends ViewModel {
 
-	private String mImageUrl;
-	private String mName;
+    private CardsRepository mRepository;
+    private LiveData<PokeCard> mCard;
+    private MutableLiveData<String> mCardId;
 
-	@Bindable
-	public String getImageUrl() {
-		return mImageUrl;
-	}
+    public CardDetailsViewModel() {
+        this.mRepository = Injection.provideCardsRepository();
+        mCardId = new MutableLiveData<>();
+        mCard = Transformations.switchMap(mCardId, new Function<String, LiveData<PokeCard>>() {
+            @Override
+            public LiveData<PokeCard> apply(String input) {
+                if (input.isEmpty()) {
+                    return NullLiveData.create();
+                } else {
+                    return mRepository.getPokeCard(input);
+                }
+            }
+        });
+    }
 
-	public void setImageUrl(String imageUrl) {
-		this.mImageUrl = imageUrl;
-		notifyPropertyChanged(BR.viewModel);
-	}
+    public LiveData<PokeCardDetailsDisplay> getPokeCard(String id){
+        mCardId.setValue(id);
+        return Transformations.map(mCard, new Function<PokeCard, PokeCardDetailsDisplay>() {
+            @Override
+            public PokeCardDetailsDisplay apply(PokeCard input) {
+                return new PokeCardDetailsDisplay(input);
+            }
+        });
+    }
 
-	@Bindable
-	public String getName() {
-		return mName;
-	}
-
-	public void setName(String name) {
-		this.mName = name;
-		notifyPropertyChanged(BR.viewModel);
-	}
 }

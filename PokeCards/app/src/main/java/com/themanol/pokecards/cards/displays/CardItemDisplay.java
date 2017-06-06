@@ -1,4 +1,4 @@
-package com.themanol.pokecards.cards.viewmodels;
+package com.themanol.pokecards.cards.displays;
 
 import com.themanol.pokecards.BR;
 import com.themanol.pokesdk.models.PokeCard;
@@ -16,7 +16,16 @@ import static java.lang.annotation.RetentionPolicy.SOURCE;
  * Created by manuelgarcia on 13/11/16.
  */
 
-public class CardItemViewModel extends BaseObservable {
+public class CardItemDisplay extends BaseObservable {
+
+	@SuppressWarnings("WrongConstant")
+	public CardItemDisplay(PokeCard pokeCard) {
+		setImageUrl(pokeCard.getImageUrl());
+		setName(pokeCard.getName());
+		setTypes(pokeCard.getTypes());
+		setSuperType(pokeCard.getSuperType());
+		setCardId(pokeCard.getId());
+	}
 
 	@Retention(SOURCE)
 	@StringDef({
@@ -59,7 +68,7 @@ public class CardItemViewModel extends BaseObservable {
 	@Bindable
 	public String getType() {
 
-		if (mSuperType.equalsIgnoreCase(POKEMON)) {
+		if (POKEMON.equalsIgnoreCase(mSuperType)) {
 
 			if (mTypes == null || mTypes.size() == 0) {
 				return POKEMON;

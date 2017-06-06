@@ -1,9 +1,5 @@
 package com.themanol.pokecards;
 
-import com.themanol.pokecards.cards.CardsInteractor;
-import com.themanol.pokecards.cards.CardsInteractorImpl;
-import com.themanol.pokecards.card_details.CardDetailsInteractor;
-import com.themanol.pokecards.card_details.CardDetailsInteractorImpl;
 import com.themanol.pokesdk.datasource.CardsRepository;
 import com.themanol.pokesdk.datasource.CardsRepositoryImpl;
 import com.themanol.pokesdk.datasource.retrofit.CardsRetrofitDatasource;
@@ -14,17 +10,8 @@ import com.themanol.pokesdk.datasource.retrofit.CardsRetrofitDatasource;
 
 public class Injection {
 
-	private static CardsRepository provideCardsRepository() {
+	public static CardsRepository provideCardsRepository() {
 		return CardsRepositoryImpl.getInstance(CardsRetrofitDatasource.INSTANCE);
 	}
 
-	public static CardsInteractor provideCardsInteractor() {
-		return new CardsInteractorImpl(Injection.provideCardsRepository());
-	}
-
-
-	public static CardDetailsInteractor provideCardDetailsInteractor() {
-		return new CardDetailsInteractorImpl(Injection.provideCardsRepository()) {
-		};
-	}
 }

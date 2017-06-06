@@ -6,7 +6,7 @@
 
         <variable
             name="viewModel"
-            type="com.themanol.pokecards.cards.viewmodels.CardItemViewModel" />
+            type="com.themanol.pokecards.cards.displays.CardItemDisplay" />
     </data>
 
     <RelativeLayout
