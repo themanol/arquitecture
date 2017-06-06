@@ -6,6 +6,7 @@ import com.themanol.pokecards.card_details.displays.PokeCardDetailsDisplay;
 import com.themanol.pokecards.cards.viewmodels.CardsViewModel;
 import com.themanol.pokecards.databinding.CardDetailsActivityBinding;
 import com.themanol.pokecards.card_details.viewmodels.CardDetailsViewModel;
+import com.themanol.pokecards.utils.PokeCardsViewModelFactory;
 
 import android.app.Activity;
 import android.arch.lifecycle.LifecycleActivity;
@@ -46,7 +47,7 @@ public class CardDetailsActivity extends LifecycleActivity{
 	protected void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		mBinding = DataBindingUtil.setContentView(this, R.layout.card_details_activity);
-		cardDetailsViewModel = ViewModelProviders.of(this).get(CardDetailsViewModel.class);
+		cardDetailsViewModel = ViewModelProviders.of(this, new PokeCardsViewModelFactory()).get(CardDetailsViewModel.class);
 		cardDetailsViewModel.getPokeCard(getIntent().getStringExtra(CARD_ID)).observe(this, new Observer<PokeCardDetailsDisplay>() {
 			@Override
 			public void onChanged(@Nullable PokeCardDetailsDisplay pokeCardDetailsDisplay) {

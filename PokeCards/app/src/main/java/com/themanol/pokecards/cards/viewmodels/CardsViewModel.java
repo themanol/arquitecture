@@ -24,8 +24,8 @@ public class CardsViewModel extends ViewModel{
 
 	private LiveData<List<PokeCard>> mCards;
 
-	public CardsViewModel() {
-		mRepository = Injection.provideCardsRepository();
+	public CardsViewModel(CardsRepository repository) {
+		mRepository = repository;
 		loadPokeCards();
 	}
 

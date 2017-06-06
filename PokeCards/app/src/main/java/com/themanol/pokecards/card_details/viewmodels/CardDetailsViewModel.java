@@ -27,8 +27,8 @@ public class CardDetailsViewModel extends ViewModel {
     private LiveData<PokeCard> mCard;
     private MutableLiveData<String> mCardId;
 
-    public CardDetailsViewModel() {
-        this.mRepository = Injection.provideCardsRepository();
+    public CardDetailsViewModel(CardsRepository repository) {
+        this.mRepository = repository;
         mCardId = new MutableLiveData<>();
         mCard = Transformations.switchMap(mCardId, new Function<String, LiveData<PokeCard>>() {
             @Override
